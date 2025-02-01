@@ -110,7 +110,29 @@ If the model is not downloaded, run it to start the download:
 ollama run deepseek-coder
 ```
 
-### d. Exit the Container
+### d. Remove the **deepseek-coder** Model
+
+If you need to remove the **deepseek-coder** model to free up space or update it, run the following command inside the Ollama container:
+
+```bash
+ollama rm deepseek-coder
+```
+
+### e. Download a Specific Version of Ollama Model (e.g., version 3.2)
+
+To get a specific version of an Ollama model, replace `MODEL_NAME` with the desired model name:
+
+```bash
+ollama run MODEL_NAME:3.2
+```
+
+For example, to download version 3.2 of a model named **ollama**, run:
+
+```bash
+ollama run ollama:3.2
+```
+
+### f. Exit the Container
 
 ```bash
 exit
@@ -142,9 +164,9 @@ docker start n8n
 
 ## 8. Configure n8n to Connect to Ollama
 
-### a. Change the Base URL in the n8n HTTP Node
+### a. Change the Base URL in the n8n Ollama Node
 
-When configuring the **HTTP node** in **n8n**, ensure the base URL points to the container name **Ollama** instead of `localhost`.
+When configuring the **Ollama node** in **n8n**, ensure the base URL points to the container name **Ollama** instead of `localhost`.
 
 **Correct URL:**
 
@@ -189,4 +211,6 @@ If you receive a response, the connection is working correctly.
 ---
 
 Done! You now have **Ollama** running locally on your VM and connected with **n8n** to automate your workflows.
+
+
 
