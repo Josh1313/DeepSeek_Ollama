@@ -12,6 +12,27 @@ This tutorial will guide you step-by-step to deploy **Ollama** on a virtual mach
 - n8n deployed using Docker.
 - Access to your VM's terminal.
 
+### Add Your User to the Docker Group
+
+To run Docker commands without `sudo`, add your user to the Docker group:
+
+```bash
+sudo usermod -aG docker $USER
+```
+
+> **Note:** After adding the user to the Docker group, **log out and log back in** for the changes to take effect.
+
+### Set Permissions for the n8n Volume
+
+Ensure the correct permissions are set for the n8n data volume:
+
+```bash
+sudo chown -R 1000:1000 /var/lib/docker/volumes/n8n_data/_data
+sudo chmod -R 700 /var/lib/docker/volumes/n8n_data/_data
+```
+
+This grants the appropriate permissions for n8n to access its data.
+
 ---
 
 ## 2. Download the Ollama Image
@@ -129,7 +150,7 @@ ollama run MODEL_NAME:3.2
 For example, to download version 3.2 of a model named **ollama**, run:
 
 ```bash
-ollama run ollama:3.2
+ollama run llama3.2:1b
 ```
 
 ### f. Exit the Container
@@ -211,6 +232,3 @@ If you receive a response, the connection is working correctly.
 ---
 
 Done! You now have **Ollama** running locally on your VM and connected with **n8n** to automate your workflows.
-
-
-
