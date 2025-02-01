@@ -153,6 +153,10 @@ For example, to download version 3.2 of a model named **ollama**, run:
 ollama run llama3.2:1b
 ```
 
+```bash
+ollama run deepseek-r1:1.5b
+```
+
 ### f. Exit the Container
 
 ```bash
